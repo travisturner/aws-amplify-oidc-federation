@@ -1,9 +1,9 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import React, {useEffect, useState, Fragment} from "react";
-import Amplify, {Auth, Hub} from "aws-amplify";
-import {Container} from "react-bootstrap";
+import React, { useEffect, useState, Fragment } from "react";
+import Amplify, { Auth, Hub } from "aws-amplify";
+import { Container } from "react-bootstrap";
 
 import Navigation from "./components/Navigation.js";
 import FederatedSignIn from "./components/FederatedSignIn.js";
@@ -12,14 +12,14 @@ import "./App.css";
 
 Amplify.configure({
   Auth: {
-    region: "<enter the region here>",
-    userPoolId: "<enter the cognito user pool id here>",
-    userPoolWebClientId: "<enter the applicaiton client id>",
+    region: "us-east-2",
+    userPoolId: "us-east-2_iID2X3dfo",
+    userPoolWebClientId: "784veejuasfq2h2ukcdid2kl66",
     oauth: {
-      domain: "<enter here the amazon cognito domain>",
+      domain: "moleculas.auth.us-east-2.amazoncognito.com",
       scope: ["email", "openid", "aws.cognito.signin.user.admin", "profile"],
-      redirectSignIn: "<enter here the amplify hosted url>",
-      redirectSignOut: "<enter here the amplify hosted url>",
+      redirectSignIn: "https://dev.d24muehyg5cyn7.amplifyapp.com",
+      redirectSignOut: "https://dev.d24muehyg5cyn7.amplifyapp.com",
       responseType: "code"
     }
   },
@@ -27,20 +27,19 @@ Amplify.configure({
     endpoints: [
       {
         name: "MyBlogPostAPI",
-        endpoint: "<enter here the API gateway endpoint url>"
+        endpoint: "https://in687tyfnd.execute-api.us-east-2.amazonaws.com"
       }
     ]
   }
 });
 
-const federatedIdName =
-  "<name of the Identity Provider as configured in Cognito>";
+const federatedIdName = "OktaOpenID";
 
 function App() {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    Hub.listen("auth", ({payload: {event, data}}) => {
+    Hub.listen("auth", ({ payload: { event, data } }) => {
       switch (event) {
         case "signIn":
         case "cognitoHostedUI":

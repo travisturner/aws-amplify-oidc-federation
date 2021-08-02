@@ -4,16 +4,16 @@
 SHELL := /bin/bash
 
 ##Parameters
-AWS_REGION			 	?= <replace with region where the deployment should live>
-PROFILE                 ?= <replace with named profile>
-STACK_NAME 		  	 	?= LambdaAuthorizer
-IDPNAME					?= <replace with name of the Provider>
-CLIENT_ID				?= <replace with OIDC IdP client id>
-CLIENT_SECRET			?= <replace with OIDC IdP client secret>
-ISSUER					?= <replace with OIDC issuer url>
-COGNITO_DOMAIN			?= <replace with cognito domain prefix name>
-DEFAULT_CALL_LIMIT		?= <replace with default daily call quota limit>
-ARTEFACT_S3_BUCKET		?= <replace with s3 bucket name where to push artefacts>
+AWS_REGION			 	?= us-east-2
+PROFILE                 ?= ampy
+STACK_NAME 		  	 	?= LambdaAuthorizer3
+IDPNAME					?= OktaOpenID
+CLIENT_ID				?= 0oa1d11vveVMPjKbC5d7
+CLIENT_SECRET			?= cIlvRRBDqrOxEMelpThnk2jTzdWUp6_oyoM6pTgY
+ISSUER					?= https://molecula.okta.com
+COGNITO_DOMAIN			?= moleculas
+DEFAULT_CALL_LIMIT		?= 1000
+ARTEFACT_S3_BUCKET		?= molecular-demo-artifacts
 ROLE_ATTRIBUTE 	        ?= department
 USERNAME                ?= email
 ##System paramteres
