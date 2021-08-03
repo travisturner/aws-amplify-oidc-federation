@@ -22,30 +22,10 @@ Amplify.configure({
       redirectSignOut: "http://localhost:3000",
       responseType: "code"
     }
-  },
-  API: {
-    endpoints: [
-      {
-        name: "MyBlogPostAPI",
-        endpoint: "https://in687tyfnd.execute-api.us-east-2.amazonaws.com"
-      }
-    ]
   }
 });
 
 API.configure({
-  Auth: {
-    region: "us-east-2",
-    userPoolId: "us-east-2_iID2X3dfo",
-    userPoolWebClientId: "784veejuasfq2h2ukcdid2kl66",
-    oauth: {
-      domain: "moleculas.auth.us-east-2.amazoncognito.com",
-      scope: ["email", "openid", "aws.cognito.signin.user.admin", "profile"],
-      redirectSignIn: "http://localhost:3000",
-      redirectSignOut: "http://localhost:3000",
-      responseType: "code"
-    }
-  },
   API: {
     endpoints: [
       {

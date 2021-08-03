@@ -1,9 +1,9 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import React, {useState} from "react";
-import {Card, Row, Col, Button, Modal, Spinner} from "react-bootstrap";
-import {API} from "aws-amplify";
+import React, { useState } from "react";
+import { Card, Row, Col, Button, Modal, Spinner } from "react-bootstrap";
+import { API } from "aws-amplify";
 
 function MainRequest(props) {
   const [json, setJson] = useState(null);
@@ -38,10 +38,10 @@ function MainRequest(props) {
       <Row>
         <Col sm={3}></Col>
         <Col sm={6}>
-          <Card style={{width: "100%"}}>
+          <Card style={{ width: "100%" }}>
             <Card.Body>
               <Card.Title>
-                <h3 style={{textAlign: "center"}}>Hello </h3>
+                <h3 style={{ textAlign: "center" }}>Hello </h3>
               </Card.Title>
               <Row>
                 <Col sm={2}></Col>
@@ -52,7 +52,7 @@ function MainRequest(props) {
                     onClick={handleSubmit}
                     block
                   >
-                    Call my mock API
+                    Call mock API
                   </Button>
                 </Col>
                 <Col sm={2}> </Col>
@@ -65,14 +65,14 @@ function MainRequest(props) {
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header>
           <Modal.Title>
-            <h3 style={{textAlign: "center"}}>Response</h3>
+            <h3 style={{ textAlign: "center" }}>Response</h3>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {json ? (
             <p>Here is the response: {json.message}</p>
           ) : (
-            <h3 style={{textAlign: "center"}}>
+            <h3 style={{ textAlign: "center" }}>
               <Spinner animation="border" variant="primary" />
             </h3>
           )}
